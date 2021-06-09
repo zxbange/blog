@@ -175,7 +175,7 @@ License
 =======
 
 The content of this theme is distributed and licensed under a
-![License Badge]({{ site.baseurl}}/images/cc_by_88x31.png)
+![License Badge]({{ site.baseurl}}/public/images/cc_by_88x31.png)
 [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
 
     This license lets others distribute, remix, tweak, and build upon your work,
@@ -190,8 +190,8 @@ so I get credit for the original design. Beyond that, have at it!
 This theme includes the following files which are the properties of their
 respective owners:
 
-* js/bootstrap.min.js - [bootstrap](http://getbootstrap.com)
-* css/bootstrap.min.css - [bootstrap](http://getbootstrap.com)
-* js/jquery.min.js - [jquery](https://jquery.com)
-* images/cc_by_88x31.png - [creative commons](https://creativecommons.org)
-* css/colorful.css - [iwootten/jekyll-syntax](https://github.com/iwootten/jekyll-syntax)
+* public/js/bootstrap.min.js - [bootstrap](http://getbootstrap.com)
+* public/css/bootstrap.min.css - [bootstrap](http://getbootstrap.com)
+* public/js/jquery.min.js - [jquery](https://jquery.com)
+* public/images/cc_by_88x31.png - [creative commons](https://creativecommons.org)
+* public/css/colorful.css - [iwootten/jekyll-syntax](https://github.com/iwootten/jekyll-syntax)

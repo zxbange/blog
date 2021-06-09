@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <title>{{ site.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
-    <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
-    <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="{{ site.baseurl }}/css/theme.css" rel="stylesheet" type="text/css">
-    <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet" type="text/css">
+    <script src="{{ site.baseurl }}/public/js/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/public/js/bootstrap.min.js"></script>
+    <link href="{{ site.baseurl }}/public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/public/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/public/css/syntax.css" rel="stylesheet" type="text/css">
 {% include isso-comments.html %}
 </head>
 
@@ -31,9 +31,9 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{ site.baseurl }}/">Home</a></li>
                     <li class="active visible-xs-block"><a href="{{ site.baseurl }}/links.html">Links</a></li>
-                    <li class="active"><a href="{{ site.baseurl }}/archive.html">Archive</a></li>
-                    <li class="active"><a href="{{ site.baseurl }}/about.html">About</a></li>
-                    <li class="active"><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+                    <li class="active"><a href="{{ site.baseurl }}/html/archive.html">Archive</a></li>
+                    <li class="active"><a href="{{ site.baseurl }}/html/about.html">About</a></li>
+                    <li class="active"><a href="{{ site.baseurl }}/html/feed.xml">RSS</a></li>
                     {% if site.gitlab != '' %}
                       <li class="active"><a href="https://gitlab.com/{{ site.gitlab }}">Gitlab</a></li>
                     {% endif %}

@@ -1,4 +1,4 @@
-I"Ç#<ul>
+I"ñ#<ul>
   <li>Get it from <a href="https://github.com/scotte/jekyll-clean">github</a>.</li>
   <li>See the <a href="https://scotte.github.io/jekyll-clean">live demo</a>.</li>
   <li>See it <a href="https://scotte.org">in action on my own blog</a>.</li>
@@ -155,7 +155,7 @@ documentation for more details.</p>
 <h1 id="license">License</h1>
 
 <p>The content of this theme is distributed and licensed under a
-<img src="/myblog/images/cc_by_88x31.png" alt="License Badge" />
+<img src="/myblog/public/images/cc_by_88x31.png" alt="License Badge" />
 <a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 License</a></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This license lets others distribute, remix, tweak, and build upon your work,
@@ -172,10 +172,10 @@ so I get credit for the original design. Beyond that, have at it!</p>
 respective owners:</p>
 
 <ul>
-  <li>js/bootstrap.min.js - <a href="http://getbootstrap.com">bootstrap</a></li>
-  <li>css/bootstrap.min.css - <a href="http://getbootstrap.com">bootstrap</a></li>
-  <li>js/jquery.min.js - <a href="https://jquery.com">jquery</a></li>
-  <li>images/cc_by_88x31.png - <a href="https://creativecommons.org">creative commons</a></li>
-  <li>css/colorful.css - <a href="https://github.com/iwootten/jekyll-syntax">iwootten/jekyll-syntax</a></li>
+  <li>public/js/bootstrap.min.js - <a href="http://getbootstrap.com">bootstrap</a></li>
+  <li>public/css/bootstrap.min.css - <a href="http://getbootstrap.com">bootstrap</a></li>
+  <li>public/js/jquery.min.js - <a href="https://jquery.com">jquery</a></li>
+  <li>public/images/cc_by_88x31.png - <a href="https://creativecommons.org">creative commons</a></li>
+  <li>public/css/colorful.css - <a href="https://github.com/iwootten/jekyll-syntax">iwootten/jekyll-syntax</a></li>
 </ul>
 :ET
