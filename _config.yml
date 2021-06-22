@@ -1,40 +1,107 @@
-# Jekyll configuration
+# Site settings
+title: 张鑫的博客
+SEOTitle: 张鑫的博客 | ZX Blog
+header-img: img/home-bg.jpg
+email: 782808539@qq.com
+description: "随笔写点东西, 记录学习的点滴"
+keyword: "张鑫, DBA, MySQL, Python, Golang"
+baseurl: "/myblog"                             # for example, '/blog' if your blog hosted on 'host/blog'
 
-name: My blog
-description: A jekyll theme
+# Publish posts or collection documents with a future date.
+future: true
 
-# url is currently only used only for the RSS feed in feed.xml
-url: https://zxbange.github.io/myblog
+# SNS settings
+RSS: false
+weibo_username:     u/2425844640
+zhihu_username:     zhang-xin-28-29-42
+github_username:    zxbange
+twitter_username:   zhangx
 
-# baseurl will often be '', but for a project page on gh-pages, it needs to
-# be the project name.
-# *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
-#     run it like so: jekyll serve --baseurl=''
-baseurl: /myblog
 
-# These can be '' to hide the Github or Gitlab nav buttons
-github: 'zxbange/myblog'
-gitlab: ''
 
-# Set this to your UA-# value, or '' to disable the block completely
-gaaccount: ''
-
-# The 'comments' setting enables comments. You'll need to select either
-# disqus or isso below to choose a comment system. Individual posts can
-# override 'comments' to disable on a post-by-post basis.
-comments: true
-
-# Set this to your public isso URL to enable comments via isso. Set to '' to disable isso.
-isso: ''
-
-# Set this to your disqus shortname to enable comments via disqus. Set to '' to disable disqus.
-disqus: ''
-
-permalink: /:year/:month/:title
-paginate: 3
-
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
-markdown: kramdown
-gems: ['jekyll-paginate']
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+# If you have timezone issue (e.g. #68) in China, uncomment to use this:
+#timezone: CN  
 
-exclude: ['README.md', 'LICENSE']
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+# make sure you have this gem installed
+# `$ gem install jekyll-paginate`
+plugins: [jekyll-paginate]
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+
+
+# Disqus settings
+disqus_username: ZX
+
+# Netease settings
+netease_comment: false
+
+
+
+# Analytics settings
+# Baidu Analytics 
+# ba_track_id: [your track id]
+
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "张鑫, DBA <br> 会点代码."
+sidebar-avatar: /myblog/img/avata-zx.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: false
+
+
+
+# Friends
+friends: [
+    {
+        title: "南山园",
+        href: "https://zxbange.github.io/zxblogs/"
+    },{
+        title: "百度",
+        href: "https://www.baidu.com/"
+    }
+]
+

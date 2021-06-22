@@ -1,199 +1,63 @@
-Jekyll Clean
-============
+[Hux Blog](https://huangxuan.me)
+================================
 
-* Get it from [github](https://github.com/scotte/jekyll-clean).
-* See the [live demo](https://scotte.github.io/jekyll-clean).
+> I never expected this to become popular 🤯 .
 
-A simple and clean Jekyll theme using [bootstrap](http://getbootstrap.com)
-(not to be confused with jekyll-bootstrap) that's easy to modify and very
-modular in component and element reuse.
+![](http://huangxuan.me/img/blog-desktop.jpg)
 
-It uses Disqus for comments and includes Google Analytics support. Both of
-these features are disabled by default and can be enabled via \_config.yml. You
-can also rip this code out of the templates if you like (footer.html and post.html).
-The beauty of Jekyll - keep things clean... Jekyll Clean!
 
-The theme works well on mobile phones, using a collapsable nav bar and hiding the
-sidebar. The links pane in the sidebar is available on mobile through the nav menu,
-and you can do the same thing for any other sections added to the sidebar.
+[User Manual 👉](_doc/Manual.md)
+--------------------------------------------------
 
-Don't forget to occassionally merge against my upstream repository so you can get
-the latest changes. Pull requests are encouraged and accepted!
+### Getting Started
 
-Installation
-============
+1. You will need [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/) to use [Jekyll](https://jekyllrb.com/). Following [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/) to fullfill the enviromental requirement.
 
-If you don't have a blog already on github, start by cloning this repository.
-Best to do that directly on github and then clone that down to your computer.
+2. Installed dependencies in the `Gemfile`:
 
-If you already do have a blog, You can certainly apply this theme to your existing
-blog in place, but then you won't be able to merge as the theme changes. If you
-re-apply your blog history on top of this theme's **gh-pages** branch, it's then
-easy to update to the latest version of the theme. You also don't want to have to
-deal with resolving old conflicts from your existing history, so you may wish to to
-push your existing master off to a new branch so you have the old history and start
-a new branch with this as the start, merging in your \_posts and other assets (after
-git rm'ing the current \_posts.
-
-Not ideal, but you have to make a choice - either apply it manually or base your
-blog off this theme's branch. Either way it will work, and both have their own
-pros and cons.
-
-You can setup an upstream tracking repository like so:
-
-```
-$ git remote add upstream git@github.com:scotte/jekyll-clean.git
+```sh
+$ bundle install 
 ```
 
-And now when you wish to merge your own branch onto the latest version of the
-theme, simply do:
+3. Serve the website (`localhost:4000` by default):
 
-```
-$ git fetch upstream
-$ git merge upstream/gh-pages
+```sh
+$ bundle exec jekyll serve  # alternatively, npm start
 ```
 
-Of course you will have to resolve conflicts for \_config.yml, \_includes/links-list.html,
-and \_posts, and so on, but in practice this is pretty simple.
+### Development (Build From Source)
 
-This is how I maintain my own blog which is based on this theme. The old history is
-sitting in an **old-master** branch that I can refer to when I need to.
+To modify the theme, you will need [Grunt](https://gruntjs.com/). There are numbers of tasks you can find in the `Gruntfile.js`, includes minifing JavaScript, compiling `.less` to `.css`, adding banners to keep the Apache 2.0 license intact, watching for changes, etc. 
 
-Running Locally
-===============
+Yes, they were inherited and are extremely old-fashioned. There is no modularization and transpilation, etc.
 
-Here's the exact set of packages I need to install on Debian to run jekyll
-locally with this theme for testing.
+Critical Jekyll-related code are located in `_include/` and `_layouts/`. Most of them are [Liquid](https://github.com/Shopify/liquid/wiki) templates.
 
-```
-$ sudo aptitude install ruby ruby-dev rubygems nodejs
-$ sudo gem install jekyll jekyll-paginate
-```
+This theme uses the default code syntax highlighter of jekyll, [Rouge](http://rouge.jneen.net/), which is compatible with Pygments theme so just pick any pygments theme css (e.g. from [here](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) and replace the content of `highlight.less`.
 
-And then it's just a simple matter of running jekyll locally:
 
-```
-$ jekyll serve --baseurl=''
-```
+### Interesting to know more? Checkout the [full user manual](_doc/Manual.md)!
 
-Now browse to http://127.0.0.1:4000
 
-Using gh-pages
-==============
+Other Resources
+---------------
 
-Running a jekyll site is a bit outside the scope of this doc, but
-sometimes it can be a bit confusing how to configure jekyll for
-project pages versus user pages, for example.
+Ports
+- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
+- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
 
-To start with, read through
-[the documentation here](https://help.github.com/articles/user-organization-and-project-pages/).
-This will provide a good overview on how it all works. The git branch and
-baseurl (in _config.yml) will change depending on the sort of site deployed.
+[Starter/Boilerplate](https://github.com/huxpro/huxblog-boilerplate)
+- Out of date. Helps wanted for updating it on par with the main repo
 
-When you clone this repository, it's set up for project pages, so the
-deployed branch is "gh-pages" and baseurl is configured to 'jekyll-clean',
-because that's the name of this project.
+Translation
+- [🇨🇳  中文文档（有点过时）](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/README.zh.md)
 
-If you plan to deploy this as user pages, the deployed branch is "master"
-and baseurl is configured to '' (i.e. empty).
-
-Using Gitlab Pages
-==================
-
-A basic .gitlab-ci.yml is provided with this project.
-
-Comment Systems
-===============
-
-Jekyll clean supports both [isso](https://posativ.org/isso) and
-[disqus](https://disqus.com) comment systems.
-
-After enabling **comments**, either **isso** or **disquss** must
-be configured. Don't try configuring both!
-
-Isso Comments
-=============
-
-Isso requires running a local server, so is not suitable for hosting
-in github pages, for example. Isso is open source and keeps all your
-data local, unlike Disqus (who knows exactly what they are doing with
-your data).
-
-In _config.yml you'll need to set **isso** to the fully-qualified URL
-if your isso server (this is the value for **data-isso** passed to the
-isso JS). Make sure **comments** is true.
-
-Disqus Comments
-===============
-
-Getting Disqus to work can be a bit more work than it seems like it should be.
-Make sure your Disqus account is correctly configured with the right domain
-of your blog and you know your Disqus shortname.
-
-In _config.yml you'll need to set **disqus** to your Disqus shortname and
-make sure **comments** is true.
-
-Finally, in posts, make sure you have **comments: true** in the YAML front
-matter.
-
-More information on using Disqus with Jekyll is
-[documented here](https://help.disqus.com/customer/portal/articles/472138-jekyll-installation-instructions).
-
-Code Syntax Highlighting
-========================
-
-To use code syntax highlighting, use the following syntax:
-
-```
-```python
-import random
-
-# Roll the die
-roll = random.randint(1, 20)
-print('You rolled a %d.' % roll)
-``` #REMOVE
-```
-
-(Remove #REMOVE from the end of the last line). Which will look like this in
-the rendered jekyll output using the default css/syntax.css provided with this
-theme (which is the **colorful** theme from [https://github.com/iwootten/jekyll-syntax](https://github.com/iwootten/jekyll-syntax)):
-
-```python
-import random
-
-# Roll the die
-roll = random.randint(1, 20)
-print('You rolled a %d.' % roll)
-```
-
-NOTE: The example in this README.md will render differently than in the
-final jekyll output. See the [live demo](https://scotte.github.io/jekyll-clean)
-to see how it really looks.
-
-You can, of course, use any theme you wish, see the jekyll and pygments
-documentation for more details.
 
 License
-=======
+-------
 
-The content of this theme is distributed and licensed under a
-![License Badge](/images/cc_by_88x31.png)
-[Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
+Apache License 2.0.
+Copyright (c) 2015-present Huxpro
 
-    This license lets others distribute, remix, tweak, and build upon your work,
-    even commercially, as long as they credit you for the original creation. This
-    is the most accommodating of licenses offered. Recommended for maximum
-    dissemination and use of licensed materials.
-
-In other words: you can do anything you want with this theme on any site, just please
-provide a link to [the original theme on github](https://github.com/scotte/jekyll-clean)
-so I get credit for the original design. Beyond that, have at it!
-
-This theme includes the following files which are the properties of their
-respective owners:
-
-* public/js/bootstrap.min.js - [bootstrap](http://getbootstrap.com)
-* public/css/bootstrap.min.css - [bootstrap](http://getbootstrap.com)
-* public/js/jquery.min.js - [jquery](https://jquery.com)
-* public/images/cc_by_88x31.png - [creative commons](https://creativecommons.org)
-* public/css/colorful.css - [iwootten/jekyll-syntax](https://github.com/iwootten/jekyll-syntax)
+Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
+Copyright (c) 2013-2016 Blackrock Digital LLC.
