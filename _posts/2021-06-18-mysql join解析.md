@@ -10,7 +10,7 @@ tags:
 
 # mysql join解析
 
-```
+```sql
 CREATE TABLE `t2` (
   `id` int(11) NOT NULL,
   `a` int(11) DEFAULT NULL,
@@ -39,7 +39,7 @@ insert into t1 (select * from t2 where id<=100)
 
 ## Index Nested-Loop Join
 
-```
+```sql
 select * from t1 straight_join t2 on (t1.a=t2.a);
 ```
 
@@ -53,7 +53,7 @@ Join复杂度：
 
 ## Simple Nested-Loop Join
 
-```
+```sql
 select * from t1 straight_join t2 on (t1.a=t2.b);
 ```
 驱动表和被驱动表都使用全表扫描进行查询
@@ -75,13 +75,20 @@ Join语句很慢，就调整join_buffer_size
 * Index Nested-Loop Join可以用，Block Nested-Loop Join避免用，查看explain中“Block Nested Loop”字样。
 * 小表作驱动表
 
-```
+```sql
 select t1.b,t2.* from  t1  straight_join t2 on (t1.b=t2.b) where t2.id<=100;
 select t1.b,t2.* from  t2  straight_join t1 on (t1.b=t2.b) where t2.id<=100;
 ```
 * 表 t1 只查字段 b，因此如果把 t1 放到 join_buffer 中，则 join_buffer 中只需要放入 b 的值；
 * 表 t2 需要查所有的字段，因此如果把表 t2 放到 join_buffer 中的话，就需要放入三个字段 id、a 和 b。
 
+## 答疑
 如果被驱动表是一个大表，并且是一个冷数据表，除了查询过程中可能会导致 IO 压力大以外，你觉得对这个 MySQL 服务还有什么更严重的影响吗？（这个问题需要结合上一篇文章的知识点）
 
-因为 join_buffer 不够大，需要对被驱动表做多次全表扫描，也就造成了“长事务”。除了老师上节课提到的导致undo log 不能被回收，导致回滚段空间膨胀问题，还会出现：1. 长期占用DML锁，引发DDL拿不到锁堵慢连接池； 2. SQL执行socket_timeout超时后业务接口重复发起，导致实例IO负载上升出现雪崩；3. 实例异常后，DBA kill SQL因繁杂的回滚执行时间过长，不能快速恢复可用；4. 如果业务采用select *作为结果集返回，极大可能出现网络拥堵，整体拖慢服务端的处理；5. 冷数据污染buffer pool，block nested-loop多次扫描，其中间隔很有可能超过1s，从而污染到lru 头部，影响整体的查询体验。
+因为 join_buffer 不够大，需要对被驱动表做多次全表扫描，也就造成了“长事务”。除了老师上节课提到的导致undo log 不能被回收，导致回滚段空间膨胀问题，还会出现：
+1. 长期占用DML锁，引发DDL拿不到锁堵慢连接池； 
+2. SQL执行socket_timeout超时后业务接口重复发起，导致实例IO负载上升出现雪崩；
+3. 实例异常后，DBA kill SQL因繁杂的回滚执行时间过长，不能快速恢复可用；
+4. 如果业务采用select *作为结果集返回，极大可能出现网络拥堵，整体拖慢服务端的处理；
+5. 冷数据污染buffer pool，block nested-loop多次扫描，其中间隔很有可能超过1s，从而污染到lru 头部，影响整体的查询体验。（冷表数据量小于Buffer_Pool的3/8，能完全放入old区）
+6. old区域数据不断被淘汰，影响young区域的数据页合理淘汰。
