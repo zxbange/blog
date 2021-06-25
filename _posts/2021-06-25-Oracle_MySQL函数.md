@@ -10,12 +10,12 @@ tags:
 ---
 
 # Oracle MySQL函数链接
-Oracle函数 10g：https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions001.htm
-Oracle函数 11g：https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions001.htm#SQLRF51173
-Oracle函数 12c：https://docs.oracle.com/database/121/SQLRF/functions.htm#SQLRF006
-Oracle函数 19c：https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Functions.html#GUID-D079EFD3-C683-441F-977E-2C9503089982
-MySQL 5.7函数： https://dev.mysql.com/doc/refman/5.7/en/built-in-function-reference.html
-转换辅助参考工具：http://www.sqlines.com/online
+Oracle函数 10g：[]()https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions001.htm
+Oracle函数 11g：[]()https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions001.htm#SQLRF51173
+Oracle函数 12c：[]()https://docs.oracle.com/database/121/SQLRF/functions.htm#SQLRF006
+Oracle函数 19c：[]()https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Functions.html#GUID-D079EFD3-C683-441F-977E-2C9503089982
+MySQL 5.7函数： []()https://dev.mysql.com/doc/refman/5.7/en/built-in-function-reference.html
+转换辅助参考工具：[]()http://www.sqlines.com/online
 
 ### Oracle/MySQL常用函数对比
 | |Oracle| |MySQL|
@@ -125,5 +125,3 @@ MySQL 5.7函数： https://dev.mysql.com/doc/refman/5.7/en/built-in-function-ref
 |93|XMLSEQUENCE(exp)|Get a varray of the top-level nodes||
 |94|XMLSERIALIZE(CONTENT exp AS datatype)|Get a serialized XML value||
 |95|XMLTRANSFORM(instance, exp)|Transform XML document||
-
-
