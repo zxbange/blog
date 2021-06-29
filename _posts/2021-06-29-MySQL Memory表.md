@@ -43,3 +43,12 @@ alter table t1 add index a_btree_index using btree (id);
 * 在双M架构下，一个库重启，会执行delete from t1，导致另一个库中的内存表被清空。
 
 因此在使用内存表的时候，如果有特殊需求，建议可以用内存临时表代替。避免掉内存表的不足。
+
+
+### 问题
+如果维护的 MySQL 系统里有内存表，怎么避免内存表突然丢数据，然后导致主备同步停止的情况。主库的存储引擎暂时不能修改。
+通过如下方式，避免备库重启，数据丢失
+```
+set sql_log_bin=off;
+alter table tbl_name engine=innodb;
+```
