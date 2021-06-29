@@ -28,7 +28,7 @@ Memory引擎采用堆组织表（Heap Organizied Table）方式，数据和索�
 alter table t1 add index a_btree_index using btree (id);
 ```
 这时表的索引组织形式：
-![avatar](/img/memory_index.jpg)
+![avatar](/myblog/img/memory_index.jpg)
 
 为什么不建议在生产环境使用内存表：
 1. 锁粒度问题
