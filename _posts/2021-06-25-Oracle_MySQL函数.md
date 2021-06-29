@@ -8,8 +8,9 @@ author:  "张鑫"
 tags:
   - DBFunctions
 ---
+# 数据库函数
 
-# Oracle MySQL函数链接
+### Oracle MySQL函数链接
 * Oracle函数 10g：[]()https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions001.htm
 * Oracle函数 11g：[]()https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions001.htm#SQLRF51173
 * Oracle函数 12c：[]()https://docs.oracle.com/database/121/SQLRF/functions.htm#SQLRF006
@@ -126,3 +127,47 @@ tags:
 |93|XMLSEQUENCE(exp)|Get a varray of the top-level nodes||
 |94|XMLSERIALIZE(CONTENT exp AS datatype)|Get a serialized XML value||
 |95|XMLTRANSFORM(instance, exp)|Transform XML document||
+
+### 字段对比
+
+||Oracle||MySQL|
+| --- | --- | ------ | --- |
+|1|BFILE|Pointer to binary file, ⇐ 4G|VARCHAR(255)||
+|2|BINARY_FLOAT|32-bit floating-point number|FLOAT||
+|3|BINARY_DOUBLE|64-bit floating-point number|DOUBLE||
+|4|BLOB|Binary large object, ⇐ 4G|LONGBLOB||
+|5|CHAR(n), CHARACTER(n)|Fixed-length string, 1 ⇐ n ⇐ 255|CHAR(n), CHARACTER(n)||
+|6|CHAR(n), CHARACTER(n)|Fixed-length string, 256 ⇐ n ⇐ 2000|VARCHAR(n)||
+|7|CLOB|Character large object, ⇐ 4G|LONGTEXT||
+|8|DATE|Date and time|DATETIME||
+|9|DECIMAL(p,s), DEC(p,s)|Fixed-point number|DECIMAL(p,s), DEC(p,s)||
+|10|DOUBLE PRECISION|Floating-point number|DOUBLE PRECISION||
+|11|FLOAT(p)|Floating-point number|DOUBLE||
+|12|INTEGER, INT|38 digits integer|INT|DECIMAL(38)|
+|13|INTERVAL YEAR(p) TO MONTH|Date interval|VARCHAR(30)||
+|14|INTERVAL DAY(p) TO SECOND(s)|Day and time interval|VARCHAR(30)||
+|15|LONG|Character data, ⇐ 2G|LONGTEXT||
+|16|LONG RAW|Binary data, ⇐ 2G|LONGBLOB||
+|17|NCHAR(n)|Fixed-length UTF-8 string, 1 ⇐ n ⇐ 255|NCHAR(n)||
+|18|NCHAR(n)|Fixed-length UTF-8 string, 256 ⇐ n ⇐ 2000|NVARCHAR(n)||
+|19|NCHAR VARYING(n)|Varying-length UTF-8 string, 1 ⇐ n ⇐ 4000|NCHAR VARYING(n)||
+|20|NCLOB|Variable-length Unicode string, ⇐ 4G|NVARCHAR(max)||
+|21|NUMBER(p,0), NUMBER(p)|8-bit integer, 1 <= p < 3|TINYINT|(0 to 255)|
+|||16-bit integer, 3 <= p < 5|SMALLINT||
+|||32-bit integer, 5 <= p < 9|INT||
+|||64-bit integer, 9 <= p < 19|BIGINT||
+|||Fixed-point number, 19 <= p <= 38|DECIMAL(p)||
+|22|NUMBER(p,s)|Fixed-point number, s > 0|DECIMAL(p,s)||
+|23|NUMBER, NUMBER(*)|Floating-point number|DOUBLE||
+|24|NUMERIC(p,s)|Fixed-point number|NUMERIC(p,s)||
+|25|NVARCHAR2(n)|Variable-length UTF-8 string, 1 ⇐ n ⇐ 4000|NVARCHAR(n)||
+|26|RAW(n)|Variable-length binary string, 1 ⇐ n ⇐ 2000|VARBINARY(n)||
+|27|REAL|Floating-point number|DOUBLE||
+|28|ROWID|Physical row address|CHAR(10)||
+|29|SMALLINT|38 digits integer|DECIMAL(38)||
+|30|TIMESTAMP(p)|Date and time with fraction|DATETIME(p)||
+|31|TIMESTAMP(p) WITH TIME ZONE|Date and time with fraction and time zone|DATETIME(p) ||
+|32|UROWID(n)|Logical row addresses, 1 ⇐ n ⇐ 4000|VARCHAR(n)||
+|33|VARCHAR(n)|Variable-length string, 1 ⇐ n ⇐ 4000|VARCHAR(n)||
+|34|VARCHAR2(n)|Variable-length string, 1 ⇐ n ⇐ 4000|VARCHAR(n)||
+|35|XMLTYPE|XML data|LONGTEXT||
