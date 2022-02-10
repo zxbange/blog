@@ -97,11 +97,8 @@ page-mathjax: false
 # Friends
 friends: [
     {
-        title: "南山园",
-        href: "https://zxbange.github.io/zxblogs/"
-    },{
-        title: "百度",
-        href: "https://www.baidu.com/"
+        title: "博客园",
+        href: "https://home.cnblogs.com/u/zx3212"
     }
 ]
 
