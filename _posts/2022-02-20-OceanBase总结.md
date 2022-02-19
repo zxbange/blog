@@ -18,7 +18,7 @@ tags:
 Xmind文件:[MySQL 45讲总结.xmind](/myblog/img/OceanBase.xmind)
 
 ### OceanBase架构图
-![avatar](/myblog/img/OB_struc.png)
+![avatar](/myblog/img/OB_Struct.png)
 
 ### 总结如下:
 ![avatar](/myblog/img/OceanBase.png)
