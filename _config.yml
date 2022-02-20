@@ -72,7 +72,7 @@ netease_comment: false
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "张鑫, DBA <br> 会点代码."
+sidebar-about-description: "张鑫, 数据库架构师 <br> 电话：18576493212 <br> 邮箱：zhangxin3212@outlook.com"
 sidebar-avatar: /myblog/img/avata-zx.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
